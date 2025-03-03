@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        input, select, button {
+            margin: 8px 0;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            box-sizing: border-box;
+            font-size: 16px;
+            height: 45px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+        select option:first-child {
+            color: #757575;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(40, 167, 69, 0.3);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        <form action="/" method="post">
+            <label>Location:</label>
+            <select name="location" required>
+                <option value="" disabled selected>Select a location</option>
+                {% for loc in locations %}
+                <option value="{{ loc }}">{{ loc }}</option>
+                {% endfor %}
+            </select>
+            <label>Total Sqft:</label>
+            <input type="text" name="total_sqft" placeholder="Enter total square feet" required>
+            <label>Size (BHK):</label>
+            <input type="text" name="size" placeholder="Enter number of BHK" required>
+            <label>Bath:</label>
+            <input type="text" name="bath" placeholder="Enter number of bathrooms" required>
+            <label>Balcony:</label>
+            <input type="text" name="balcony" placeholder="Enter number of balconies" required>
+            <label>Area Type:</label>
+            <select name="area_type" required>
+                <option value="" disabled selected>Select area type</option>
+                <option value="Super built-up">Super built-up</option>
+                <option value="Built-up">Built-up</option>
+                <option value="Plot Area">Plot Area</option>
+                <option value="Carpet Area">Carpet Area</option>
+            </select>
+            <label>Availability:</label>
+            <select name="availability" required>
+                <option value="" disabled selected>Select availability status</option>
+                <option value="Ready to move">Ready to move</option>
+                <option value="Under construction">Under construction</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Predicted Price: ₹{{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
