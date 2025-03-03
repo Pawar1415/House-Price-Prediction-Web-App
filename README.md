@@ -8,7 +8,7 @@ and predicts the estimated house price using a trained regression model.
 
 ### Prediction Result
 ![Prediction Result](snapshots/snapshot_2.png)
-![Prediction Result](snapshots/snapshot_3.png)
+![Prediction Result](snapshots/snapshots_3.png)
 
 ## 🚀 **Project Overview**
 This project aims to predict house prices based on several features such as:
