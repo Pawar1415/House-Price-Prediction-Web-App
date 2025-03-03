@@ -80,22 +80,22 @@ Then open http://127.0.0.1:5000/ in your browser.
 ---
 The train_model.py file performs:
 
-Data Cleaning & Preprocessing
-Feature Engineering (handling missing values, categorical encoding, etc.)
-Model Training (Linear Regression)
-Saving the Trained Model (model.pkl)
+- Data Cleaning & Preprocessing
+- Feature Engineering (handling missing values, categorical encoding, etc.)
+- Model Training (Linear Regression)
+- Saving the Trained Model (model.pkl)
 
 🔹 Handling total_sqft Column
 ---
-Some values are like "1200 - 1500".
-These are converted to the average (e.g., (1200+1500)/2 = 1350).
+- Some values are like "1200 - 1500".
+- These are converted to the average (e.g., (1200+1500)/2 = 1350).
 
 ⚙️ How the Model Works
 ---
-User inputs house details on the webpage
-Flask receives the input and processes it
-Pre-trained model predicts the house price
-Predicted price is displayed on the webpage
+- User inputs house details on the webpage
+- Flask receives the input and processes it
+- Pre-trained model predicts the house price
+- Predicted price is displayed on the webpage
 
 🤝 Contributing
 ---
